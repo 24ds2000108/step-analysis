@@ -1,0 +1,30 @@
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install Dependencies
+      run: |
+        echo "Installing dependencies..."
+        sudo apt-get install -y some-package
+
+    - name: Step with Email 24ds2000108@ds.study.iitm.ac.in
+      run: echo "This step has the email address in its name!"
+    
+    - name: Run Tests
+      run: |
+        echo "Running tests..."
+        # Add your test commands here
+
+    - name: Notify completion 24ds2000108@ds.study.iitm.ac.in
+      run: echo "GitHub Action completed!"
