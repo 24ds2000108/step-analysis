@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build:
+  test:  # Changed from 'build' to 'test'
     runs-on: ubuntu-latest
 
     steps:
