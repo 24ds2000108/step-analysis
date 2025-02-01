@@ -15,12 +15,12 @@ jobs:
 
     - name: Install Dependencies
       run: |
-        echo "Installing dependencies..."
+        sudo apt-get update
         sudo apt-get install -y some-package
 
     - name: Step with Email 24ds2000108@ds.study.iitm.ac.in
       run: echo "This step has the email address in its name!"
-    
+
     - name: Run Tests
       run: |
         echo "Running tests..."
@@ -28,3 +28,4 @@ jobs:
 
     - name: Notify completion 24ds2000108@ds.study.iitm.ac.in
       run: echo "GitHub Action completed!"
+
