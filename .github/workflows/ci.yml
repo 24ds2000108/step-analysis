@@ -6,26 +6,34 @@ on:
       - main
 
 jobs:
-  test:  # Changed job name to 'test'
+  test:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Install Dependencies
+    - name: Install Ubuntu dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y some-package
+        sudo apt-get install -y build-essential  # This installs essential build tools (gcc, g++, make, etc.)
+        sudo apt-get install -y python3 python3-pip  # If you're using Python
+        sudo apt-get install -y libssl-dev libffi-dev  # Additional dependencies for some Python packages
+        sudo apt-get install -y curl  # Install curl if needed
 
-    - name: Step with Email 24ds2000108@ds.study.iitm.ac.in
-      run: echo "This step has the email address in its name!"
+    - name: Set up Python (if you're using Python)
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'  # Specify your Python version
+
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt  # Make sure you have a requirements.txt file
 
     - name: Run Tests
       run: |
-        echo "Running tests..."
-        # Add your test commands here
+        pytest  # or `python -m unittest` or your testing command
 
     - name: Notify completion 24ds2000108@ds.study.iitm.ac.in
       run: echo "GitHub Action completed!"
-
