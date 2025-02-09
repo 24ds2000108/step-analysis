@@ -12,10 +12,10 @@ jobs:
   commit:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: 24ds2000108@ds.study.iitm.ac.in 
         uses: actions/checkout@v4
 
-      - name: Configure Git - 24ds2000108@ds.study.iitm.ac.in  # ✅ Corrected step name
+      - name: 24ds2000108@ds.study.iitm.ac.in  
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "24ds2000108@ds.study.iitm.ac.in"
