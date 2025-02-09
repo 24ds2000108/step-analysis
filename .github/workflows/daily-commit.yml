@@ -2,8 +2,11 @@ name: Daily Commit Workflow
 
 on:
   schedule:
-    - cron: '30 5 * * *'  # Runs every day at 05:30 UTC (adjust as needed)
+    - cron: '55 14 * * *'  # Runs every day at 20:10 IST (14:40 UTC)
   workflow_dispatch:  # Allows manual triggering
+
+permissions:
+  contents: write  # Grant write permissions to the workflow
 
 jobs:
   daily_commit:
@@ -13,11 +16,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Create a commit step - 24ds2000108@ds.study.iitm.ac.in
+      - name: Create a commit - 24ds2000108@ds.study.iitm.ac.in  # Email explicitly in step name
         run: |
-          echo "Last run: $(date)" > last_run.txt
+          echo "Last run: $(date)" >> last_run.txt  # Append timestamp to ensure change
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "github-actions@github.com"
           git add last_run.txt
-          git commit -m "Daily automated commit - $(date)"
+          git commit -m "Daily automated commit - $(date)" || echo "No changes to commit"
           git push
