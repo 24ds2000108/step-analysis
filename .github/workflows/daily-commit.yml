@@ -24,7 +24,7 @@ jobs:
         run: |
           echo "Last run: $(date)" > last_run.txt  # Always modify the file
 
-      - name: Commit and Push Changes - 24ds2000108@ds.study.iitm.ac.in  # ✅ Another valid step name
+      - name: Commit and Push Changes - 24ds2000108@ds.study.iitm.ac.in  
         run: |
           git add last_run.txt
           git commit -m "Automated daily commit at $(date)" || echo "No changes to commit"
